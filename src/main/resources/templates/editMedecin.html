@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1 "
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Form Patients</title>
+
+</head>
+
+<body>
+<div layout:fragment="content1">
+    <div class="col-md-6 offset-3">
+        <form method="post" th:action="@{/admin/save(page=${page},keyword=${keyword})}">
+            <div>
+                <label>ID :</label>
+                <label th:text="${medecin.id}"></label>
+                <input class="form-control" type="hidden" name="id" th:value="${medecin.id}">
+            </div>
+            <div>
+                <label for="nom">Nom</label>
+                <input id="nom" class="form-control" type="text" name="nom" th:value="${medecin.nom}">
+                <span class="text-danger" th:errors="${medecin.nom}"></span>
+            </div>
+
+                   <div>
+                       <label>Prenom</label>
+                       <input class="form-control" type="text" name="prenom" th:value="${medecin.prenom}">
+                       <span  class="text-danger" th:errors="${medecin.prenom}"></span>
+                   </div>
+            <div>
+                <label>CIN</label>
+                <input class="form-control" type="text" name="CIN" th:value="${medecin.CIN}">
+                <span  class="text-danger" th:errors="${medecin.CIN}"></span>
+            </div>
+
+            <div>
+                <label>Date De Naissance</label>
+                <input class="form-control" type="date" name="datedenaissance" th:value="${medecin.datedenaissance}">
+                <span class="text-danger" th:errors="${medecin.datedenaissance}"></span>
+            </div>
+
+            <div>
+                <label>Age</label>
+                <input  type="text" name="age" th:checked="${medecin.age}">
+                <span class="text-danger" th:errors="${medecin.age}"></span>
+            </div>
+
+            <div>
+                <label>Specialite</label>
+                <input class="form-control"  type="text" name="specialite" th:value="${medecin.specialite}">
+                <span class="text-danger" th:errors="${medecin.specialite}"></span>
+            </div>
+
+            <div>
+                <label>Score</label>
+                <input class="form-control"  type="text" name="numtel" th:value="${medecin.numtel}">
+                <span class="text-danger" th:errors="${medecin.numtel}"></span>
+            </div>
+
+            <div>
+                <label>Mail</label>
+                <input class="form-control"  type="text" name="mail" th:value="${medecin.mail}">
+                <span class="text-danger" th:errors="${medecin.mail}"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
